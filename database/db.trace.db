@@ -1,0 +1,236 @@
+2023-05-26 12:24:01 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE [*]user (\000d\000aid INT AUTO_INCREMENT PRIMARY KEY,\000d\000ausername VARCHAR(50) UNIQUE NOT NULL,\000d\000aemail VARCHAR(100) UNIQUE NOT NULL,\000d\000apassword_hash VARCHAR(255) NOT NULL,\000d\000arole VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),\000d\000acreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),\000d\000aupdated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE\000d\000aCURRENT_TIMESTAMP()\000d\000a)"; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE [*]user (\000d\000aid INT AUTO_INCREMENT PRIMARY KEY,\000d\000ausername VARCHAR(50) UNIQUE NOT NULL,\000d\000aemail VARCHAR(100) UNIQUE NOT NULL,\000d\000apassword_hash VARCHAR(255) NOT NULL,\000d\000arole VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),\000d\000acreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),\000d\000aupdated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE\000d\000aCURRENT_TIMESTAMP()\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE user (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+email VARCHAR(100) UNIQUE NOT NULL,
+password_hash VARCHAR(255) NOT NULL,
+role VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE
+CURRENT_TIMESTAMP()
+) [42001-214]
+2023-05-26 12:27:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE [*]user (\000d\000aid INT AUTO_INCREMENT PRIMARY KEY,\000d\000ausername VARCHAR(50) UNIQUE NOT NULL,\000d\000aemail VARCHAR(100) UNIQUE NOT NULL,\000d\000apassword_hash VARCHAR(255) NOT NULL,\000d\000arole VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),\000d\000acreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),\000d\000aupdated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE\000d\000aCURRENT_TIMESTAMP()\000d\000a)"; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE [*]user (\000d\000aid INT AUTO_INCREMENT PRIMARY KEY,\000d\000ausername VARCHAR(50) UNIQUE NOT NULL,\000d\000aemail VARCHAR(100) UNIQUE NOT NULL,\000d\000apassword_hash VARCHAR(255) NOT NULL,\000d\000arole VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),\000d\000acreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),\000d\000aupdated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE\000d\000aCURRENT_TIMESTAMP()\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE user (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+email VARCHAR(100) UNIQUE NOT NULL,
+password_hash VARCHAR(255) NOT NULL,
+role VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE
+CURRENT_TIMESTAMP()
+) [42001-214]
+2023-05-26 12:27:23 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+email VARCHAR(100) UNIQUE NOT NULL,
+password_hash VARCHAR(255) NOT NULL,
+role VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE
+CURRENT_TIMESTAMP()
+) [42101-214]
+2023-05-26 12:29:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Невозможно удалить "USERS", пока существует зависимый объект "FKHFH9DX7W3UBF1CO1VDEV94G3F, CONSTRAINT_A1"
+Cannot drop "USERS" because "FKHFH9DX7W3UBF1CO1VDEV94G3F, CONSTRAINT_A1" depends on it; SQL statement:
+DROP TABLE USERS [90107-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:97)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:121)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp.query(WebApp.java:1113)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-05-26 12:30:15 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Невозможно удалить "ROLES", пока существует зависимый объект "FKH8CIRAMU9CC9Q3QCQIV4UE8A6"
+Cannot drop "ROLES" because "FKH8CIRAMU9CC9Q3QCQIV4UE8A6" depends on it; SQL statement:
+DROP TABLE ROLES [90107-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:97)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:121)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp.query(WebApp.java:1113)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-05-26 15:25:01 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "DROP TABLE SESSION\000d\000a[*]DROP TABLE USERS"
+Syntax error in SQL statement "DROP TABLE SESSION\000d\000a[*]DROP TABLE USERS"; SQL statement:
+DROP TABLE SESSION
+DROP TABLE USERS [42000-214]
+2023-05-26 18:32:18 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Невозможно удалить "USERS", пока существует зависимый объект "CONSTRAINT_A1"
+Cannot drop "USERS" because "CONSTRAINT_A1" depends on it; SQL statement:
+drop table users [90107-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:97)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:121)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1339)
+	at org.h2.server.web.WebApp.query(WebApp.java:1137)
+	at org.h2.server.web.WebApp.query(WebApp.java:1113)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2023-05-27 18:35:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE [*]user (\000d\000aid INT AUTO_INCREMENT PRIMARY KEY,\000d\000ausername VARCHAR(50) UNIQUE NOT NULL,\000d\000aemail VARCHAR(100) UNIQUE NOT NULL,\000d\000apassword_hash VARCHAR(255) NOT NULL,\000d\000arole VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),\000d\000acreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),\000d\000aupdated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE\000d\000aCURRENT_TIMESTAMP()\000d\000a)"; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE [*]user (\000d\000aid INT AUTO_INCREMENT PRIMARY KEY,\000d\000ausername VARCHAR(50) UNIQUE NOT NULL,\000d\000aemail VARCHAR(100) UNIQUE NOT NULL,\000d\000apassword_hash VARCHAR(255) NOT NULL,\000d\000arole VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),\000d\000acreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),\000d\000aupdated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE\000d\000aCURRENT_TIMESTAMP()\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE user (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+email VARCHAR(100) UNIQUE NOT NULL,
+password_hash VARCHAR(255) NOT NULL,
+role VARCHAR(10) NOT NULL CHECK (role IN ('customer', 'chef', 'manager')),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE
+CURRENT_TIMESTAMP()
+) [42001-214]
+2023-05-27 18:36:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "SESSION" уже существует
+Table "SESSION" already exists; SQL statement:
+CREATE TABLE session (
+id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT NOT NULL,
+session_token VARCHAR(255) NOT NULL,
+expires_at TIMESTAMP NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users(id)
+) [42101-214]
+2023-05-27 18:36:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "[*]USERS"; ожидалось "UPDATE, USE"
+Syntax error in SQL statement "[*]USERS"; expected "UPDATE, USE"; SQL statement:
+USERS [42001-214]
