@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
+/**
+ * Controller for user information.
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/info")
@@ -27,6 +30,12 @@ public class InfoController {
     @Autowired
     JwtUtils jwtUtils;
 
+    /**
+     * GET-request for info.
+     * Check last logged-in user info: username, email, id, role.
+     * @param jwtToken Required token as authorization.
+     * @return HTTP-status of user's request.
+     */
     @GetMapping
     public ResponseEntity<?> getUserInfo(@RequestHeader(name = "Authorization") String jwtToken) {
         StringBuilder msgInfo = new StringBuilder("User info:\n");

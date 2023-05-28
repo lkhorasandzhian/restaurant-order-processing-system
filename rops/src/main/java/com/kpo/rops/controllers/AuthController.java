@@ -26,6 +26,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.sql.Timestamp;
 
+/**
+ * Controller for authorization.
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
@@ -45,6 +48,11 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    /**
+     * POST-request for login.
+     * @param loginRequest user data with email and password in JSON-format.
+     * @return HTTP-status of user's request.
+     */
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest,
                                               BindingResult bindingResult) {
@@ -84,6 +92,11 @@ public class AuthController {
         );
     }
 
+    /**
+     * POST-request for sign up.
+     * @param signUpRequest user data with email, username and password in JSON-format.
+     * @return HTTP-status of user's request.
+     */
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest,
                                           BindingResult bindingResult) {

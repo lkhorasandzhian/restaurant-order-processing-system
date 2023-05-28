@@ -19,6 +19,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.kpo.rops.security.services.UserDetailsServiceImpl;
 
+/**
+ * Filter class for processing authentication tokens in JWT format.
+ */
 public class AuthTokenFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtils jwtUtils;
@@ -28,6 +31,14 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 
+    /**
+     * Filters the incoming request, extracts and validates the JWT token, and sets the user authentication in the SecurityContextHolder.
+     @param request the HttpServletRequest object.
+     @param response the HttpServletResponse object.
+     @param filterChain the FilterChain object.
+     @throws ServletException if a servlet exception occurs.
+     @throws IOException if an I/O exception occurs.
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -52,6 +63,11 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    /**
+     * Parses the JWT token from the Authorization header.
+     @param request the HttpServletRequest object.
+     @return the parsed JWT token.
+     */
     private String parseJwt(HttpServletRequest request) {
         String headerAuth = request.getHeader("Authorization");
 

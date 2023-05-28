@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * Utility class for JWT token generation, parsing, and validation.
+ */
 @Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
@@ -20,6 +23,11 @@ public class JwtUtils {
     @Value("${restaurant.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
+    /**
+     * Generates a JWT token based on the provided authentication information.
+     @param authentication the Authentication object.
+     @return the generated JWT token.
+     */
     public String generateJwtToken(Authentication authentication) {
 
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
@@ -32,6 +40,11 @@ public class JwtUtils {
                 .compact();
     }
 
+    /**
+     * Extracts the username from the JWT token.
+     @param token the JWT token.
+     @return the extracted username.
+     */
     public String getUserNameFromJwtToken(String token) {
         return Jwts
                 .parser()
@@ -41,6 +54,11 @@ public class JwtUtils {
                 .getSubject();
     }
 
+    /**
+     * Extracts the expiration date from the JWT token.
+     @param token the JWT token.
+     @return the expiration date.
+     */
     public Date extractExpiration(String token) {
         return Jwts
                 .parser()
@@ -50,6 +68,11 @@ public class JwtUtils {
                 .getExpiration();
     }
 
+    /**
+     * Validates the JWT token.
+     @param authToken the JWT token to validate.
+     @return true if the token is valid, false otherwise.
+     */
     public boolean validateJwtToken(String authToken) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);

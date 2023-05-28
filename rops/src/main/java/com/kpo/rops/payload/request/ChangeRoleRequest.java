@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * Validation of user input from change role page.
+ */
 @Data
 public class ChangeRoleRequest {
     @NotBlank

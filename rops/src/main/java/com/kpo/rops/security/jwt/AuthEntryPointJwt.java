@@ -17,11 +17,22 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Component used as the entry point for JWT authentication.
+ */
 @Component
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthEntryPointJwt.class);
 
+    /**
+     * Handles the commence of authentication.
+     @param request the HttpServletRequest object.
+     @param response the HttpServletResponse object.
+     @param authException the AuthenticationException that occurred.
+     @throws IOException if an I/O exception occurs.
+     @throws ServletException if a servlet exception occurs.
+     */
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)
             throws IOException, ServletException {

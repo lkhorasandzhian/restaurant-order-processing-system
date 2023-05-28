@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.kpo.rops.models.User;
 
+/**
+ * Special repository for working with 'USERS' database.
+ * There are abilities to find user by username, email.
+ * Also, you can just check existence by username, email and role.
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUsername(String username);

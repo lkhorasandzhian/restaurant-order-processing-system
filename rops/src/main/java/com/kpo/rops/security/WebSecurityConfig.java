@@ -18,6 +18,9 @@ import com.kpo.rops.security.jwt.AuthEntryPointJwt;
 import com.kpo.rops.security.jwt.AuthTokenFilter;
 import com.kpo.rops.security.services.UserDetailsServiceImpl;
 
+/**
+ * Configuration class for web security.
+ */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
@@ -27,11 +30,19 @@ public class WebSecurityConfig {
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
 
+    /**
+     * Creates and returns an instance of AuthTokenFilter.
+     @return the AuthTokenFilter instance.
+     */
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
         return new AuthTokenFilter();
     }
 
+    /**
+     * Creates and returns an instance of DaoAuthenticationProvider.
+     @return the DaoAuthenticationProvider instance.
+     */
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -42,16 +53,32 @@ public class WebSecurityConfig {
         return authProvider;
     }
 
+    /**
+     * Retrieves the AuthenticationManager instance from AuthenticationConfiguration.
+     @param authConfig the AuthenticationConfiguration instance.
+     @return the AuthenticationManager instance.
+     @throws Exception if an exception occurs while retrieving the AuthenticationManager.
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 
+    /**
+     * Creates and returns an instance of PasswordEncoder.
+     @return the PasswordEncoder instance.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Configures the SecurityFilterChain for HTTP security.
+     @param http the HttpSecurity instance.
+     @return the configured SecurityFilterChain.
+     @throws Exception if an exception occurs while configuring the SecurityFilterChain.
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()

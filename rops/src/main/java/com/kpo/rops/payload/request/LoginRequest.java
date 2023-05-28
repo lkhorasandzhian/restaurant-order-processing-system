@@ -7,6 +7,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+/**
+ * Validation of user input from login page.
+ */
 @Data
 public class LoginRequest {
     @NotBlank

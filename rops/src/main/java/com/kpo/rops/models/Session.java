@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+/**
+ * A special class for 'SESSION' database.
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

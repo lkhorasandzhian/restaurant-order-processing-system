@@ -10,6 +10,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
+/**
+ * A special class for 'USERS' database.
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

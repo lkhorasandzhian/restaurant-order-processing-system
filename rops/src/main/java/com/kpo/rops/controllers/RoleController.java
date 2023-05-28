@@ -20,6 +20,9 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Controller for role updating.
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/change_role")
@@ -36,6 +39,12 @@ public class RoleController {
     @Autowired
     JwtUtils jwtUtils;
 
+    /**
+     * PUT-request for role changing.
+     * @param jwtToken Required token as authorization.
+     * @param changeRoleRequest user data with username and new role in JSON-format.
+     * @return HTTP-status of user's request.
+     */
     @PutMapping
     public ResponseEntity<?> changeRole(@RequestHeader(name = "Authorization") String jwtToken,
                                         @Valid @RequestBody ChangeRoleRequest changeRoleRequest,

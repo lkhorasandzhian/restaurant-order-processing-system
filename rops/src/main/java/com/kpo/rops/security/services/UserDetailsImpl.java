@@ -11,6 +11,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Implementation of UserDetails interface for user authentication and authorization.
+ */
 public class UserDetailsImpl implements UserDetails {
     private static final int serialVersionUID = 1;
 
@@ -25,6 +28,14 @@ public class UserDetailsImpl implements UserDetails {
 
     private final ERole role;
 
+    /**
+     * Constructs a new UserDetailsImpl instance with the specified parameters.
+     @param id the user ID.
+     @param username the username.
+     @param email the email.
+     @param password the password.
+     @param role the user role.
+     */
     public UserDetailsImpl(Integer id, String username, String email, String password, ERole role) {
         this.id = id;
         this.username = username;
@@ -33,6 +44,11 @@ public class UserDetailsImpl implements UserDetails {
         this.role = role;
     }
 
+    /**
+     * Builds and returns a UserDetailsImpl instance from a User object.
+     @param user the User object.
+     @return the UserDetailsImpl instance.
+     */
     public static UserDetailsImpl build(User user) {
         return new UserDetailsImpl(
                 user.getId(),
@@ -42,6 +58,10 @@ public class UserDetailsImpl implements UserDetails {
                 user.getRole());
     }
 
+    /**
+     * Returns the authorities granted to the user.
+     @return the collection of granted authorities.
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -77,6 +97,11 @@ public class UserDetailsImpl implements UserDetails {
         return true;
     }
 
+    /**
+     * Compares this UserDetailsImpl object to the specified object.
+     @param o the object to compare.
+     @return true if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {

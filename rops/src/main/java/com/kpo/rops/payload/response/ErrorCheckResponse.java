@@ -3,7 +3,15 @@ package com.kpo.rops.payload.response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 
+/**
+ * Request error checker.
+ */
 public class ErrorCheckResponse {
+    /**
+     * Specialized for checking errors.
+     * @param bindingResult status of HTTP-request.
+     * @return If there is no errors gives null, otherwise — 'bad request' status.
+     */
     public static ResponseEntity<?> getResponseEntity(BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             var errorList = bindingResult.getFieldErrors();

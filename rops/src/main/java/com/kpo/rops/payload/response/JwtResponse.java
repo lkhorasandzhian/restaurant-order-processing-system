@@ -2,6 +2,10 @@ package com.kpo.rops.payload.response;
 
 import lombok.Data;
 
+/**
+ * Full user info with JWT-token checker.
+ * Useful for testing responses.
+ */
 @Data
 public class JwtResponse {
     private String token;
