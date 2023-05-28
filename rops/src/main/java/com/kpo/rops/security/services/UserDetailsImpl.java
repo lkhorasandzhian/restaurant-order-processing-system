@@ -14,16 +14,16 @@ import java.util.Objects;
 public class UserDetailsImpl implements UserDetails {
     private static final int serialVersionUID = 1;
 
-    private Integer id;
+    private final Integer id;
 
-    private String username;
+    private final String username;
 
-    private String email;
+    private final String email;
 
     @JsonIgnore
-    private String password;
+    private final String password;
 
-    private ERole role;
+    private final ERole role;
 
     public UserDetailsImpl(Integer id, String username, String email, String password, ERole role) {
         this.id = id;
@@ -45,14 +45,6 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     @Override
