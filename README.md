@@ -11,7 +11,7 @@
 
 # Документация кода
 Оформленную Javadoc-документацию можно найти здесь:
-* [микросервис авторизации](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/generated-java-doc).
+* [микросервис авторизации](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/generated-java-doc);
 * [микросервис обработки заказов](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/generated-java-doc2).
 
 ## Реализация коллекции Postman
