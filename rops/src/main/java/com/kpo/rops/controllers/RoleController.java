@@ -16,6 +16,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -69,6 +71,7 @@ public class RoleController {
         }
 
         requestedUser.setRole(newRole);
+        requestedUser.setUpdatedAt(new Timestamp(new Date().getTime()));
 
         userRepository.save(requestedUser);
 
