@@ -18,6 +18,6 @@
 Ссылку на Postman-коллекцию можно найти [здесь](https://www.postman.com/lkhorasandzhian/workspace/restaurant-workspace/collection/27610854-fea41a0c-277b-45f4-bcc6-9a2172d23b9b?action=share&creator=27610854).
 
 ## Примечание
-* rops — микросервис авторизации пользователей
-* rops2 — микросервис обработки заказов пользователей
-* demo — микросервис для проверки базы данных (не предназначен для выпуска, только для разработчиков)
+* [rops](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/rops) — микросервис авторизации пользователей;
+* [rops2](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/rops2) — микросервис обработки заказов пользователей;
+* [demo](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/demo) — микросервис для проверки базы данных (не предназначен для выпуска, только для разработчиков).
