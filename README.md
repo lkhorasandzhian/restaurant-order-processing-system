@@ -21,3 +21,7 @@
 * [rops](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/rops) — микросервис авторизации пользователей;
 * [rops2](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/rops2) — микросервис обработки заказов пользователей;
 * [demo](https://github.com/lkhorasandzhian/restaurant-order-processing-system/tree/main/demo) — микросервис для проверки базы данных (не предназначен для выпуска, только для разработчиков).
+
+
+---
+Полученная оценка за работу: 6
